@@ -17,6 +17,14 @@ def guess(name, answer):
         correct = (answer == 27)
     return render_template('guess2.html', name=name, correct=correct)
 
+@app.route('/login/',methods=['GET', 'POST'])
+def login():
+	#assert False
+    if session['logged_in'] == True:
+        fname = request.form['fname']
+        lname = request.form['lname']   
+    return render_template('store.html', fname, lname)
+
 @app.route('/store/',methods=['GET', 'POST'])
 def store():
 
