@@ -1,0 +1,9 @@
+<!doctype html>
+<html>
+<body>
+	<title>{% block title %}{% endblock title %}</title>
+{% block main %}
+{% endblock main %}
+<a href="{{ url_for('guess', name='jeszy', answer=27) }}">Guess the number</a>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} Guess the number! {% endblock title %}
+{% block main %}
+    {% if session.logged_in %}
+        Welcome back {{ name }}
+    {% endif %}    
+    {% if correct %}
+        <title>Congrats!</title>
+        <h1>You found the answer, {{ name }}</h1>
+    <form action="{{ url_for('store') }}" method="POST">
+        First name: <input type="text" name="fname"><br>
+        Last name: <input type="text" name="lname"><br>
+        <input type="submit" value="Submit">
+    </form>
+    {% else %}
+        <title>You lose!</title>
+        <h1>Try again {{ request_url }}</h1>
+    {% endif %}
+{% endblock main %}    
